@@ -9,7 +9,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="ko">
       <body>
         <Header />
-        <main className="min-h-[calc(100vh-120px)]">{children}</main>
+        <main className="min-h-[calc(100vh-120px)] max-w-6xl mx-auto px-6">{children}</main>
         <Footer />
       </body>
     </html>

@@ -20,7 +20,7 @@ export default function OnboardPage() {
   const prev = () => setStep((s) => Math.max(0, s - 1))
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4 bg-[#f9fafb]">
+    <div className="min-h-screen flex items-center justify-center px-4 bg-white">
       <div className="w-full max-w-sm flex flex-col gap-4">
         {step === 0 && (
           <NicknameStep

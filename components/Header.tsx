@@ -19,7 +19,7 @@ export default function Header() {
                     <Link href="/board" className="hover:text-brand transition">
                         게시판
                     </Link>
-                    <Link href="/mypage" className="hover:text-brand transition">
+                    <Link href="/users" className="hover:text-brand transition">
                         마이페이지
                     </Link>
                     <Link href="/login" className="hover:text-brand transition">
