@@ -30,7 +30,6 @@ export default function RecruitForm() {
       stacks: selectedStacks,
       description
     })
-    // TODO: 서버 연동 예정
   }
 
   return (

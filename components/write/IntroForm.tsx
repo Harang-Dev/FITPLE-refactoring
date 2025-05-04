@@ -17,7 +17,6 @@ export default function IntroForm() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     console.log({ position, headline, bio, mainStack })
-    // TODO: 서버로 제출 예정
   }
 
   return (

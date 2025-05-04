@@ -22,14 +22,13 @@ export default function PopularPostCarousel() {
 
     let scrollAmount = 0
     const scrollStep = 1
-    const scrollInterval = 20 // ms
+    const scrollInterval = 20
 
     const interval = setInterval(() => {
       if (!container) return
       scrollAmount += scrollStep
       container.scrollLeft += scrollStep
 
-      // 무한 루프처럼 반복
       if (container.scrollLeft + container.offsetWidth >= container.scrollWidth) {
         container.scrollLeft = 0
         scrollAmount = 0

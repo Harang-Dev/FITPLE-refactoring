@@ -12,7 +12,7 @@ export default function LoginPage() {
     const { data, error } = await supabase.auth.signInWithOAuth({
       provider: "kakao",
       options: {
-        redirectTo: `${window.location.origin}/login/onboard`,
+        redirectTo: `${window.location.origin}/login/callback`,
       },
     })
   }
@@ -25,7 +25,6 @@ export default function LoginPage() {
         </CardHeader>
 
         <CardContent className="flex flex-col gap-4">
-          {/* 카카오 로그인 버튼 */}
           <Button
             variant="outline"
             className="w-full bg-[#FEE500] hover:bg-[#ffd900] text-black font-semibold py-6"

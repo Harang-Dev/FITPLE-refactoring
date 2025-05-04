@@ -7,7 +7,6 @@ export default function UserTabs() {
   const router = useRouter()
   const pathname = usePathname()
 
-  // 현재 경로에 따라 탭 상태 결정
   const current = pathname.includes("/users/team")
     ? "team"
     : pathname.includes("/users/activity")

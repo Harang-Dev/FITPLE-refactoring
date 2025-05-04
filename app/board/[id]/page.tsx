@@ -22,7 +22,7 @@ export default function BoardDetailPage({ params }: { params: { id: string } }) 
   if (!post) return notFound()
 
   const handleLike = () => setLikes((prev) => prev + 1)
-  const handleApply = () => alert("지원 요청이 전송되었습니다!") // TODO: 서버 연동
+  const handleApply = () => alert("지원 요청이 전송되었습니다!")
 
   return (
     <div className="max-w-3xl mx-auto px-4 py-10 space-y-6">
@@ -37,7 +37,6 @@ export default function BoardDetailPage({ params }: { params: { id: string } }) 
 
       <p className="text-base leading-relaxed whitespace-pre-wrap">{post.content}</p>
 
-      {/* 버튼 묶음 - 가운데 정렬 */}
       <div className="flex justify-center gap-4 mt-10">
         <Button onClick={handleApply}>지원하기</Button>
         <Button variant="ghost" onClick={handleLike}>
