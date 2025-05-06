@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { CreateUserUseCase } from "@/back/users/application/usecases/create-user";
+import { CreateUserUseCase } from "@/back/users/application/usecases/CreateUserUsecase"
 import { SbUserRepository } from "@/back/users/infra/repositories/SbUserRepository";
 
 export async function POST(req: NextRequest) {

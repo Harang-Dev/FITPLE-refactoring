@@ -9,6 +9,8 @@ import Link from "next/link"
 export default function UsersPage() {
   const user = useUserStore((state) => state.user)
 
+  console.log("user", user);
+
   if (!user) {
     return (
       <div className="min-h-screen flex items-center justify-center text-gray-500">

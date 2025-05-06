@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs"
 import NicknameStep from "@/components/onboard/NicknameStep"
 import CareerStep from "@/components/onboard/CareerStep"
@@ -10,6 +10,9 @@ import { useCreateUser } from "@/hooks/useCreateUser"
 
 export default function OnboardPage() {
   const [step, setStep] = useState(0)
+  const [allSkills, setAllSkills] = useState<string[]>([])
+  const [loading, setLoading] = useState(true) // ✅ 로딩 상태
+
   const { mutate: createUser } = useCreateUser()
   const supabase = createClientComponentClient()
 
@@ -19,6 +22,22 @@ export default function OnboardPage() {
     position: "",
     skills: [] as string[],
   })
+
+  useEffect(() => {
+    const fetchSkills = async () => {
+      try {
+        const res = await fetch("/api/skills")
+        const data = await res.json()
+        setAllSkills(data.map((skill: any) => skill.name))
+      } catch (e) {
+        alert("기술 스택을 불러오지 못했습니다.")
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchSkills()
+  }, [])
 
   const next = () => setStep((s) => s + 1)
   const prev = () => setStep((s) => Math.max(0, s - 1))
@@ -41,6 +60,7 @@ export default function OnboardPage() {
       career: formData.career,
       avatarUrl: user.user_metadata?.avatar_url || "",
       createdAt: new Date(),
+      skills: formData.skills,
     }
 
     createUser(newUser, {
@@ -85,11 +105,13 @@ export default function OnboardPage() {
         )}
         {step === 3 && (
           <SkillStep
+            skills={allSkills}
             values={formData.skills}
             onChange={(skills) =>
               setFormData((prev) => ({ ...prev, skills }))
             }
             onNext={handleSubmit}
+            loading={loading}
           />
         )}
 
